@@ -1,0 +1,66 @@
+{% extends 'layouts/master.html.twig' %}
+
+
+ {% block titulo %}Materiales{% endblock %}
+
+{% block form %}
+    
+  
+
+    <div class="container">
+        <div>
+            <h5 class="center-align">Stock materiales</h5>
+        </div>
+    </div>
+
+    </br>
+    
+        {% for message in app.session.flashbag().get('message') %}
+
+            <center><strong>{{ message }}</strong></center>
+
+        {% endfor %}
+    
+   <div class="container">
+
+       {% if productos|length >= 1 %}
+
+            <table class="responsive-table" id="tabla">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                    </tr>
+                </thead>
+                
+                {% for producto in productos %}
+
+                <tbody>
+                   
+                    <tr>
+                        <td>{{producto.id}}</td>
+                        <td>{{producto.nombre}}</td>
+                        <td>{{producto.precio}}</td>
+                        <td>{{producto.stock}}</td>
+                    </tr>
+                    
+                </tbody>
+                
+                
+                {% endfor %}
+            </table>
+                    
+  {% else %}
+    <strong>No hay tareas</strong>
+{% endif %}
+
+
+
+        </div>
+
+
+{% endblock %}
+

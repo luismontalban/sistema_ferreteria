@@ -16,6 +16,47 @@ class ProductoController extends AbstractController
      * @Route("/producto", name="producto")
      */
    
+    public function index() {
+        $repository = $this->getDoctrine()->getRepository(Producto::class);
+
+
+
+        $productos = $repository->findBy([], ['id' => 'DESC']);
+
+
+
+
+
+        /*
+
+          $user_repo = $this->getDoctrine()->getRepository(User::class);
+          $users = $user_repo->findAll();
+
+
+          foreach($users as $user){
+          echo "<h1>{$user->getName()} {$user->getSurname()}</h1>";
+
+          foreach($user->getTasks() as $task){
+          echo $task->getTitle()."<br/>";
+          }
+
+
+          }
+
+         * 
+         */
+        return $this->render('producto/show.html.twig', [
+                    'productos' => $productos,
+        ]);
+    }
+
+    
+    
+    
+    
+    
+    
+    
     public function createproducto(Request $request) {
         
         
