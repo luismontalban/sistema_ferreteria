@@ -1,0 +1,75 @@
+Producto:
+    type: entity
+    table: producto
+    indexes:
+        fk_producto_categoria_idx:
+            columns:
+                - categoria_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        codigo:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        nombre:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        descripcion:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        precio:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        stock:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    manyToOne:
+        categoria:
+            targetEntity: Categoria
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                categoria_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        venta:
+            targetEntity: Venta
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: producto
+            joinTable:
+                name: producto_venta
+                joinColumns:
+                    -
+                        name: producto_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: venta_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

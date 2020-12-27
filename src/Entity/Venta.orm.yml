@@ -1,0 +1,52 @@
+Venta:
+    type: entity
+    table: venta
+    indexes:
+        fk_venta_usuario1_idx:
+            columns:
+                - usuario_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        cantidad:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        fecha:
+            type: datetime
+            nullable: true
+        descripcion:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    manyToOne:
+        usuario:
+            targetEntity: Usuario
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                usuario_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        producto:
+            targetEntity: Producto
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: venta
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

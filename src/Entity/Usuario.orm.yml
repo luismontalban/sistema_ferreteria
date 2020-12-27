@@ -1,0 +1,42 @@
+Usuario:
+    type: entity
+    table: usuario
+    uniqueConstraints:
+        rut_UNIQUE:
+            columns:
+                - rut
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        rut:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+        nombre:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        apellidos:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        password:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }
