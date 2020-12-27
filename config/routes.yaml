@@ -1,3 +1,29 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+    
+
+registro:
+    path: /registro
+    controller: App\Controller\UsuarioController::register
+    
+
+login:
+    path: /
+    controller: App\Controller\UsuarioController::login
+    
+logout:
+    path: /logout
+    
+    
+
+menu:
+    path: /menu
+    controller: App\Controller\DefaultController::menu
+    
+registrar-material:
+    path: /savematerial
+    controller: App\Controller\ProductoController::createproducto
+    
+
+

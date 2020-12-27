@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Validation;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Usuario
@@ -10,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="usuario", uniqueConstraints={@ORM\UniqueConstraint(name="rut_UNIQUE", columns={"rut"})})
  * @ORM\Entity
  */
-class Usuario
+class Usuario implements UserInterface
 {
     /**
      * @var int
@@ -101,6 +104,34 @@ class Usuario
 
         return $this;
     }
+    
+    
+    
+    
+public function getUsername() {
+return $this->rut;
+
+}
+
+
+public function getRoles() {
+
+return array('ROLE_USER');
+}
+
+
+public function getSalt() {
+return null;
+
+}
+
+
+
+
+public function eraseCredentials() {
+
+
+}
 
 
 }

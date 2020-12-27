@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>
+            {% block titulo %}Sistema{% endblock %}
+        </title>
+        {% block stylesheets %}
+
+            <!--Import Google Icon Font-->
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <!--Import materialize.css-->
+            <link type="text/css" rel="stylesheet" href="{{asset('assets/css/materialize.min.css')}}"  media="screen,projection"/>
+            <link type="text/css" rel="stylesheet" href="{{asset('assets/css/estiloss.css')}}"  media="screen,projection"/>
+        {% endblock %}
+    </head>
+    <body>
+
+
+
+        {% block body %}
+
+
+          <!-- Dropdown Structure Bitacora -->
+      
+        <ul id="dropdown1" class="dropdown-content">
+             
+            <li><a href="">Nueva categoria</a></li>
+            <li><a href="">Ver categorias</a></li>
+            
+            <li class="divider"></li>
+
+        </ul>
+       
+
+        <!-- Dropdown Structure Emergency -->
+
+        <ul id="dropdown2" class="dropdown-content">
+            <li><a href="">Nueva venta</a></li>
+            <li><a href="">Ver Ventas</a></li>
+            <li class="divider"></li>
+
+        </ul>
+
+       
+
+         <!-- Dropdown Structure Part Emergency -->
+
+        <ul id="dropdown4" class="dropdown-content">
+           
+            <li><a href="{{ path('registrar-material')}}">Registrar Material</a></li>
+            <li><a href="">Ver Materiales</a></li>
+           
+            
+            <li class="divider"></li>
+           
+           
+        </ul>
+         
+          <ul id="dropdown5" class="dropdown-content">
+           
+            <li><a href="">Registrar usuario</a></li>
+            <li><a href="">Ver Usuarios</a></li>
+           
+            
+            <li class="divider"></li>
+           
+           
+        </ul>
+
+            
+
+        
+        
+        
+<!--        <ul id="dropdownres" class="dropdown-content">
+  <li><a href="#!">Mis Datos</a></li>
+  
+  <li class="divider"></li>
+  
+</ul>-->
+
+       
+        <!-- Dropdown Structure Bitacora -->
+
+        <ul id="dropdown1r" class="dropdown-content">
+            <li><a href="">Nueva categoria</a></li>
+            
+            <li><a href="">Ver categorias</a></li>
+            <li class="divider"></li>
+            
+
+        </ul>
+         
+
+
+
+        <!-- Dropdown Structure Emergency -->
+
+        <ul id="dropdown2r" class="dropdown-content">
+            <li><a href="">Nueva venta</a></li>
+            <li><a href="">Ver ventas</a></li>
+            <li class="divider"></li>
+
+        </ul>
+        
+         
+        
+       
+        
+         <ul id="dropdown4r" class="dropdown-content">
+           
+            <li><a href="{{ path('registrar-material')}}">Registrar material</a></li>
+            <li><a href="">Ver materiales</a></li>
+           
+           
+            <li class="divider"></li>
+           
+           
+        </ul>
+        
+        
+         <ul id="dropdown5r" class="dropdown-content">
+           
+            <li><a href="">Registrar usuario</a></li>
+            <li><a href="">Ver usuarios</a></li>
+           
+           
+            <li class="divider"></li>
+           
+           
+        </ul>
+
+
+
+
+
+
+
+
+
+        <nav>
+            <div class="nav-wrapper">
+               
+                <a href="" class="brand-logo"><i class="large material-icons">build</i>AppWeb</a>
+                
+               
+                
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                
+          
+                   
+                <ul class="right hide-on-med-and-down">
+                   
+                     {% if app.user %}
+                    
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown4">Materiales<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Categorias<i class="material-icons right">arrow_drop_down</i></a></li>
+                    
+                    <li><a class="dropdown-trigger" href="#" data-target="dropdown2">Venta<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-trigger" href="#" data-target="dropdown5">Usuarios<i class="material-icons right">arrow_drop_down</i></a></li>
+                
+                    <!-- Dropdown Trigger -->
+                    
+<!--                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown4">Registrar Usuario<i class="material-icons right">arrow_drop_down</i></a></li>-->
+                    
+                  <li><a href="#!">{{ app.user.rut}}   </a></li>
+                   
+                    <!-- Dropdown Trigger -->
+<!--      <li><a class="dropdown-trigger" href="#!" data-target="dropdownuser"> <i class="material-icons right">arrow_drop_down</i></a></li>-->
+                 
+                   
+
+
+
+                  <li><a href="{{ path('logout')}}" class="waves-effect waves-light btn">Cerrar Sesión <i class="material-icons right">power_settings_new</i></a></li>
+                  
+                  {% endif %}
+                </ul>
+
+            </div>
+        </nav>
+
+        <ul class="sidenav" id="mobile-demo">
+            
+            {% if app.user %}
+              <li><a href="#!">{{ app.user.rut}} </a></li>
+              
+              <li><a class="dropdown-trigger" href="#!" data-target="dropdown4r">Materiales<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1r">Categorias<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown2r">Venta<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown5r">Usuarios<i class="material-icons right">arrow_drop_down</i></a></li>
+            
+            
+<!--            <li><a class="dropdown-trigger" href="#!" data-target="dropdown4r">Registrar Usuario<i class="material-icons right">arrow_drop_down</i></a></li>-->
+            <li><a href="{{ path('logout')}}" class="waves-effect waves-light btn">Cerrar Sesión <i class="material-icons right">power_settings_new</i></a></li>
+            {% endif %}
+        </ul>
+
+        
+                
+           
+
+
+
+        {% endblock %}
+
+        
+        
+        
+        {% block form %}
+            
+            {% endblock form %}
+            
+            
+            
+            
+          
+
+       
+       
+  
+            
+{% block javascripts %}
+        <!--JavaScript at end of body for optimized loading-->
+        <script type="text/javascript" src="{{asset('assets/js/materialize.min.js')}}"></script>
+        
+        <script>
+document.addEventListener('DOMContentLoaded', function () {
+    M.AutoInit();
+});
+
+    </script>
+
+    {% endblock %}
+</body>
+</html>
+
+
+
+
+ 

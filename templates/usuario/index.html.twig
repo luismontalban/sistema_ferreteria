@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>{% block title %}Iniciar Sesión{% endblock %}</title>
+        {% block stylesheets %}
+
+            <!--Import Google Icon Font-->
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <!--Import materialize.css-->
+            <link type="text/css" rel="stylesheet" href="{{asset('assets/css/materialize.min.css')}}"  media="screen,projection"/>
+            <link type="text/css" rel="stylesheet" href="{{asset('assets/css/estiloss.css')}}"  media="screen,projection"/>
+        {% endblock %}
+    </head>
+    <body>
+
+
+
+        {% block body %}
+
+
+            <div class="section"></div>
+            <main>
+                <center>
+                    
+                    <div class="section"></div>
+
+                    <h5 class="black-text">Ingresa al Sistema</h5>
+                    <div class="section"></div>
+
+                     {% if error %}
+                     <div class="alert alert-error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                      {% endif %}
+
+
+                    <div class="container">
+                        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+
+                            <form class="col s12" method="POST" action="{{path('login')}}">
+
+                                <div class='row'>
+                                    <div class='col s12'>
+                                    </div>
+                                </div>
+
+
+
+                                <div class='row'>
+                                    <div class='input-field col s12'>
+                                        <i class="material-icons prefix">account_box</i>
+
+                                        <input class='validate' type='text' id="username" name="_username" value="{{last_username}}" required/>
+                                        <label for='rut'>Ingresa tu Rut</label>
+                                    </div>
+                                </div>
+
+                                <div class='row'>
+                                    <div class='input-field col s12'>
+                                        <i class="material-icons prefix">vpn_key</i>
+                                        <input class='validate' type='password' id="password" name="_password" required/>
+                                        <label for='clave'>Ingresa tu Contraseña</label>
+                                    </div>
+                                    
+                                </div>
+
+                                <br />
+                                <center>
+                                    <div class='row'>
+                                        <button type='submit' id="btnlogin" name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Iniciar Sesión</button>
+                                    </div>
+                                </center>
+                            </form>
+                        </div>
+                    </div>
+
+                </center>
+
+                <div class="section"></div>
+                <div class="section"></div>
+            </main>
+
+
+
+
+
+
+
+
+
+        {% endblock %}
+        {% block javascripts %}
+            <!--JavaScript at end of body for optimized loading-->
+            <script type="text/javascript" src="{{asset('assets/js/materialize.min.js')}}"></script>
+
+        {% endblock %}
+    </body>
+</html>
