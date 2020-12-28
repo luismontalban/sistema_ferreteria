@@ -25,50 +25,31 @@ class VentaController extends AbstractController
         ]);
     }
     
-     public function creationventa(Request $request, UserInterface $user) {
+     public function creationventa(UserInterface $user) {
 
-        $venta = new Venta();
-
-        $form = $this->createForm(VentaType::class, $venta);
-        $form->handleRequest($request);
-
-
-        //COMPROBAR SI EL FORM SE HA ENVIDO Y ES VALIDO
-        if ($form->isSubmitted() && $form->isValid()) {
-
-//            $task->setCreatedAt(new \DateTime('now'));
-            $venta->setUsuario($user);
-
-
-            //GUARDAR USUARIO
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($venta);
-            $entityManager->flush();
-
-            //SESION FLASH
-
-            $session = new Session();
-
-            $session->getFlashBag()->add('message', 'Venta registrada');
-
-            return $this->redirectToRoute('menu');
-
+      
+     $venta = new Venta();    
+     $pro = new Producto();    
+         
+         
             
-        }
+        
+
+
+
+     }
 
 
 
 
 
-
-
-
-
-        return $this->render('venta/index.html.twig', [
-                    'form' => $form->createView()
-        ]);
-    }
+       
+    
+    
+    
+    
+    
+    
     
     
     

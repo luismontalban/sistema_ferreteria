@@ -29,14 +29,17 @@ registrar-categoria:
     path: /savecategoria
     controller: App\Controller\CategoriaController::createcategoria
     
-registrar-venta:
-    path: /registrarventa
-    controller: App\Controller\VentaController::creationventa
-    
     
 mis_materiales:
     path: /mis-materiales
     controller: App\Controller\ProductoController::index
+    
+    
+venta:
+    path: /venta/{id}
+    controller: App\Controller\VentaController::creationventa
+    
+
     
 
 
