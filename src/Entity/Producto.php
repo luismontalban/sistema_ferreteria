@@ -72,14 +72,7 @@ class Producto
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Venta",  inversedBy="producto")
-     * @ORM\JoinTable(name="producto_venta",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="producto_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="venta_id", referencedColumnName="id")
-     *   }
-     * )
+     * @ORM\JoinTable(name="producto_venta")
      */
     private $venta;
 
@@ -191,5 +184,12 @@ class Producto
 
         return $this;
     }
+    
+    
+    public function __toString()
+    {
+        return $this->nombre;
+    }
+    
 
 }
